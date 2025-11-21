@@ -21,7 +21,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        npm install
+        
         npm install whatsapp-web.js qrcode-terminal yt-search axios
 
     - name: Run Bot
