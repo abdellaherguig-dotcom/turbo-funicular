@@ -1,0 +1,29 @@
+name: WhatsApp Bot
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: |
+        npm install
+        npm install whatsapp-web.js qrcode-terminal yt-search axios
+
+    - name: Run Bot
+      run: |
+        node index.js
